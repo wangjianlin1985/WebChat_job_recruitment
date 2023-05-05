@@ -1,0 +1,53 @@
+<view class="container">
+  <view  class="userinfo">
+    <image class="userinfo-avatar" src="{{avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{nickName}}</text>
+  </view>
+  <view class="usermotto">
+ 
+    <navigator wx:if="{{role == 'user'}}" class="list_a" url="../delivery/delivery_user_list">
+        我的应聘记录
+    </navigator>
+    <navigator wx:if="{{role == 'user'}}" class="list_a" url="../evaluate/evaluate_user_list">
+        我给商家的评价
+    </navigator>
+    <navigator wx:if="{{role == 'user'}}" class="list_a" url="../leaveword/leaveword_add">
+        提交客服留言
+    </navigator>
+    <navigator wx:if="{{role == 'user'}}" class="list_a" url="../leaveword/leaveword_list">
+        我的留言记录
+    </navigator>
+    <navigator wx:if="{{role == 'user'}}" class="list_a" url="../userInfo/userInfo_modify">
+        修改个人信息
+    </navigator>
+
+    <navigator wx:if="{{role == 'seller'}}" class="list_a" url="../delivery/delivery_seller_list">
+        处理用户求职记录
+    </navigator>
+
+    <navigator wx:if="{{role == 'seller'}}" class="list_a" url="../job/job_add">
+        发布新职位
+    </navigator>
+    <navigator wx:if="{{role == 'seller'}}" class="list_a" url="../job/job_seller_list">
+        管理发布的职位
+    </navigator>
+    <navigator wx:if="{{role == 'seller'}}" class="list_a" url="../evaluate/evaluate_self">
+        我收到的评价
+    </navigator>
+  
+    <navigator wx:if="{{role == 'seller'}}" class="list_a" url="../seller/seller_selfModify">
+        修改商户信息
+    </navigator>
+
+     
+    <navigator class="list_b" url="../system/lianx?openid={{openid}}">
+        联系我们
+    </navigator>
+    <navigator class="list_b" url="../system/about">
+        关于我们
+    </navigator>
+  </view>
+  <view class="footer">
+    @2020 版权所有
+  </view>
+</view>

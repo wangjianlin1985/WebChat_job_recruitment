@@ -1,0 +1,25 @@
+<view class="container"> 
+  <view class="evaluateList">
+  <block wx:for-items="{{evaluates}}" wx:key="{{index}}">
+    <view class="evaluateItem">
+        <navigator url="evaluate_detail?evaluateId={{item.evaluateId}}" hover-class="navigator-hover">
+        <view class="evaluateText"> 
+          <view>评分：{{item.evaluateScore}}</view>
+          <view>评价内容：{{item.evaluateContent}}</view>
+          <view>评论用户：{{item.userObj.name}}</view>
+          <view>评论时间：{{item.evaluateTime}}</view>
+        </view>
+        </navigator>
+    </view> 
+  </block>
+  </view>
+
+  <view hidden="{{loading_hide}}" class="loading">
+    <view class="loadingImg"><image src="/images/loading.gif" mode="aspectFill"></image></view>
+    <view class="loadingTxt">..加载中..</view>
+  </view>
+  <view class="nodata_view" hidden="{{nodata_hide}}">
+    <image src="/images/Noline.png" mode="widthFix"></image>
+  </view>
+</view>
+

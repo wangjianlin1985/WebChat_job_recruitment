@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<view class="container">
+   <swiper indicator-dots="true" autoplay="true" interval="{{interval}}" duration="{{duration}}" circular="true">
+        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image" width="100%"/>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <view class="title">最新入住商户</view> 
+
+    
+  <view class="sellerList">
+  <block wx:for-items="{{sellers}}" wx:key="{{index}}">
+    <view class="sellerItem">
+        <view class="sellerImg">
+          <image src="{{item.sellerPhotoUrl}}"></image>
+        </view>
+        <navigator url="../seller/seller_detail?sellerUserName={{item.sellerUserName}}" hover-class="navigator-hover">
+        <view class="sellerText"> 
+          <view>商户名称：{{item.sellerName}}</view>
+          <view>经营时间：{{item.workTime}}</view>
+          <view>联系电话：{{item.telephone}}</view>
+          <view>工作地址：{{item.workAddress}}</view> 
+          <view>入住时间：{{item.addTime}}</view>
+        </view>
+        </navigator>
+    </view>
+  </block>
+  </view>
+
+
+  <view hidden="{{loading_hide}}" class="loading">
+    <view class="loadingImg"><image src="/images/loading.gif" mode="aspectFill"></image></view>
+    <view class="loadingTxt">..加载中..</view>
+  </view>
+  
+  <!--
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+
+
+  
+</view>

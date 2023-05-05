@@ -1,0 +1,70 @@
+<view class="container">
+  <view class="toggleQview" bindtap="toggleQueryViewHide" style="padding:5px;">显示或隐藏查询视图</view>
+  <view class="queryView" hidden="{{queryViewHidden}}">
+    <view class="queryParams">
+      <view class="queryItem">
+        <view class="label">被评价商家：</view>
+        <view class="searchControl">
+          <picker bindchange="bind_sellerObj_change" value="{{sellerObj_Index}}" range-key="sellerName" range="{{sellers}}">
+            <view class="value" name="types">
+              <input style="width:75%;display:inline-block;float:left;" value="{{sellers[sellerObj_Index].sellerName}}"></input>
+              <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+            </view>
+          </picker> 
+        </view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">评价内容：</view>
+        <view class="searchControl"><input data-id="evaluateContent" placeholder="请输入评价内容关键字" value="{{evaluateContent}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">评论用户：</view>
+        <view class="searchControl">
+          <picker bindchange="bind_userObj_change" value="{{userObj_Index}}" range-key="name" range="{{userInfos}}">
+            <view class="value" name="types">
+              <input style="width:75%;display:inline-block;float:left;" value="{{userInfos[userObj_Index].name}}"></input>
+              <image class="arrow-r" src="/images/arrow-r-0.png"></image>
+            </view>
+          </picker> 
+        </view>
+      </view>
+
+    </view>
+
+    <view class="queryButton">
+       <button class="font_12 fl_r op-btn mr_10" bindtap="queryEvaluate">查询</button>
+    </view>
+  </view>
+
+  <view class="evaluateList">
+  <block wx:for-items="{{evaluates}}" wx:key="{{index}}">
+    <view class="evaluateItem">
+        <navigator url="evaluate_detail?evaluateId={{item.evaluateId}}" hover-class="navigator-hover">
+        <view class="evaluateText">
+          <view>被评价商家：{{item.sellerObj.sellerName}}</view>
+          <view>评分：{{item.evaluateScore}}</view>
+          <view>评价内容：{{item.evaluateContent}}</view>
+          <view>评论用户：{{item.userObj.name}}</view>
+        </view>
+        </navigator>
+    </view>
+    <view class="opt_view" style="display:none;">
+      <button class="font_12 fl_r del-btn mr_10" bindtap="removeEvaluate" data-evaluateid="{{item.evaluateId}}">删除</button> 
+      <navigator url="evaluate_modify?evaluateId={{item.evaluateId}}" hover-class="navigator-hover">
+        <button class="font_12 fl_r op-btn mr_10">编辑</button>
+      </navigator>
+    </view>
+  </block>
+  </view>
+
+  <view hidden="{{loading_hide}}" class="loading">
+    <view class="loadingImg"><image src="/images/loading.gif" mode="aspectFill"></image></view>
+    <view class="loadingTxt">..加载中..</view>
+  </view>
+  <view class="nodata_view" hidden="{{nodata_hide}}">
+    <image src="/images/Noline.png" mode="widthFix"></image>
+  </view>
+</view>
+

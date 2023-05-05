@@ -1,0 +1,59 @@
+ 
+.arrow-r {
+  width: 9rpx;
+  height: 17rpx;
+  margin-left: 10rpx;
+}
+
+.evaluateList {
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  display: flex; 
+  margin-top: 0rpx;
+}
+
+.evaluateItem {
+  padding:20rpx 20rpx 20rpx 5rpx;
+  width: 95%;
+  height: auto;
+  border-top: 1rpx solid #ededed;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+}
+
+.evaluateItem .evaluateImg {
+  flex: 2;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  text-align: right;
+}
+
+.evaluateItem .evaluateImg image { 
+  width: 180rpx;
+  height: 180rpx; 
+}
+
+.evaluateItem navigator {
+  flex:5;
+  display: flex; 
+  flex-direction: column;
+}
+
+.evaluateItem .evaluateText view {
+    line-height: 60rpx;
+    padding-left: 30rpx;
+}
+
+.opt_view {
+  display:block;
+  width: 100%;
+  margin-top: 2px; 
+  margin-bottom: 8px;
+}
+
+ .opt_view button {
+   width: 55px;
+ }

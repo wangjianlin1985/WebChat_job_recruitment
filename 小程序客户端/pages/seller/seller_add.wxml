@@ -1,0 +1,103 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+  <view class="title">添加商家</view>
+
+  <view class="seller_add_view">
+    <form bindsubmit="formSubmit">
+      <view class="formItem">
+        <view class="label">商家账号：</view>
+        <view class="formControl">
+          <input type="text" name="seller.sellerUserName" placeholder="请输入商家账号" value="{{sellerUserName}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">预留密码段：</view>
+        <view class="formControl">
+          <input type="text" name="seller.password" placeholder="请输入预留密码段" value="{{password}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">商户名称：</view>
+        <view class="formControl">
+          <input type="text" name="seller.sellerName" placeholder="请输入商户名称" value="{{sellerName}}" />
+        </view>
+      </view>
+
+       <view class="formItem">
+        <view class="label">商户照片：</view>
+        <view class="formControl" bindtap="select_sellerPhoto">
+          <input type="text" hidden="true" name="seller.sellerPhoto" value="{{sellerPhoto}}" />
+          <image wx:for="{{sellerPhotoList}}" class="uploadPic" mode="aspectFill" src="{{item}}" wx:key=""></image>
+          <image src="../../images/upic.png" class="uploadPic" mode="widthFix"></image>
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">经营内容：</view>
+        <view class="formControl">
+          <input type="text" name="seller.workContent" placeholder="请输入经营内容" value="{{workContent}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">经营时间：</view>
+        <view class="formControl">
+          <input type="text" name="seller.workTime" placeholder="请输入经营时间" value="{{workTime}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">联系电话：</view>
+        <view class="formControl">
+          <input type="text" name="seller.telephone" placeholder="请输入联系电话" value="{{telephone}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">工作地址：</view>
+        <view class="formControl">
+          <input type="text" name="seller.workAddress" placeholder="请输入工作地址" value="{{workAddress}}" />
+        </view>
+      </view>
+
+       <view class="formItem">
+        <view class="label">营业许可证：</view>
+        <view class="formControl" bindtap="select_workLicense">
+          <input type="text" hidden="true" name="seller.workLicense" value="{{workLicense}}" />
+          <image wx:for="{{workLicenseList}}" class="uploadPic" mode="aspectFill" src="{{item}}" wx:key=""></image>
+          <image src="../../images/upic.png" class="uploadPic" mode="widthFix"></image>
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">评价分数：</view>
+        <view class="formControl">
+          <input type="text" name="seller.scoreValue" placeholder="请输入评价分数" value="{{scoreValue}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">审核状态：</view>
+        <view class="formControl">
+          <input type="text" name="seller.shenHeState" placeholder="请输入审核状态" value="{{shenHeState}}" />
+        </view>
+      </view>
+
+      <view class="formItem">
+        <view class="label">注册时间：</view>
+        <view class="formControl">
+          <input type="text" name="seller.addTime" placeholder="请输入注册时间" value="{{addTime}}" />
+        </view>
+      </view>
+
+      <view>
+        <button class="vBtn_ok" formType="submit" disabled="{{disabled}}">提交发布</button>
+      </view>
+
+    </form>
+  </view>
+</view>

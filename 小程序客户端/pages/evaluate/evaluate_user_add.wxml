@@ -1,0 +1,38 @@
+<view class="container">
+  <loading hidden="{{loadingHide}}">
+    {{loadingText}}
+  </loading>
+  <view class="title">发布商家评价</view>
+
+  <view class="evaluate_add_view">
+    <form bindsubmit="formSubmit"> 
+
+      <view class="formItem">
+        <view class="label">被评商家：</view>
+        <view class="formControl">
+          {{sellerName}}
+          <input hidden="true" name="evaluate.sellerObj.sellerUserName" value="{{sellerUserName}}" />
+        </view>
+      </view>
+      
+      <view class="formItem">
+        <view class="label">评分：</view>
+        <view class="formControl">
+          <input type="text" name="evaluate.evaluateScore" placeholder="请输入评分" value="{{evaluateScore}}" />
+        </view>
+      </view>
+
+      <view class="formItem" style="align-items:flex-start;">
+        <view class="label">评价内容：</view>
+        <view class="formControl">
+           <textarea placeholder="请输入评价内容" maxlength="800" name="evaluate.evaluateContent" value="{{evaluateContent}}" />
+        </view>
+      </view> 
+
+      <view>
+        <button class="vBtn_ok" formType="submit" disabled="{{disabled}}">提交发布</button>
+      </view>
+
+    </form>
+  </view>
+</view>

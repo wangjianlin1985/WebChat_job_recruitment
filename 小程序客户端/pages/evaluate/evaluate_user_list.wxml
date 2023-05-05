@@ -1,0 +1,33 @@
+<view class="container"> 
+  
+  <view class="evaluateList">
+  <block wx:for-items="{{evaluates}}" wx:key="{{index}}">
+    <view class="evaluateItem">
+        <navigator url="evaluate_detail?evaluateId={{item.evaluateId}}" hover-class="navigator-hover">
+        <view class="evaluateText">
+          <view>被评价商家：{{item.sellerObj.sellerName}}</view>
+          <view>评分：{{item.evaluateScore}}</view>
+          <view>评价内容：{{item.evaluateContent}}</view>
+          <view>评论用户：{{item.userObj.name}}</view>
+          <view>评价时间：{{item.evaluateTime}}</view>
+        </view>
+        </navigator>
+    </view>
+    <view class="opt_view" >
+      <button class="font_12 fl_r del-btn mr_10" bindtap="removeEvaluate" data-evaluateid="{{item.evaluateId}}">删除</button> 
+      <navigator url="evaluate_modify?evaluateId={{item.evaluateId}}" hover-class="navigator-hover">
+        <button class="font_12 fl_r op-btn mr_10">编辑</button>
+      </navigator>
+    </view>
+  </block>
+  </view>
+
+  <view hidden="{{loading_hide}}" class="loading">
+    <view class="loadingImg"><image src="/images/loading.gif" mode="aspectFill"></image></view>
+    <view class="loadingTxt">..加载中..</view>
+  </view>
+  <view class="nodata_view" hidden="{{nodata_hide}}">
+    <image src="/images/Noline.png" mode="widthFix"></image>
+  </view>
+</view>
+

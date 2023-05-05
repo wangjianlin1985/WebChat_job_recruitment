@@ -1,0 +1,72 @@
+<view class="container">
+  <view class="toggleQview" bindtap="toggleQueryViewHide" style="padding:5px;">显示或隐藏查询视图</view>
+  <view class="queryView" hidden="{{queryViewHidden}}">
+    <view class="queryParams">
+      <view class="queryItem">
+        <view class="label">商家账号：</view>
+        <view class="searchControl"><input data-id="sellerUserName" placeholder="请输入商家账号关键字" value="{{sellerUserName}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">商户名称：</view>
+        <view class="searchControl"><input data-id="sellerName" placeholder="请输入商户名称关键字" value="{{sellerName}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">联系电话：</view>
+        <view class="searchControl"><input data-id="telephone" placeholder="请输入联系电话关键字" value="{{telephone}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">审核状态：</view>
+        <view class="searchControl"><input data-id="shenHeState" placeholder="请输入审核状态关键字" value="{{shenHeState}}" bindinput="searchValueInput" /></view>
+      </view>
+
+      <view class="queryItem">
+        <view class="label">注册时间：</view>
+        <view class="searchControl"><input data-id="addTime" placeholder="请输入注册时间关键字" value="{{addTime}}" bindinput="searchValueInput" /></view>
+      </view>
+
+    </view>
+
+    <view class="queryButton">
+       <button class="font_12 fl_r op-btn mr_10" bindtap="querySeller">查询</button>
+    </view>
+  </view>
+
+  <view class="sellerList">
+  <block wx:for-items="{{sellers}}" wx:key="{{index}}">
+    <view class="sellerItem">
+        <view class="sellerImg">
+          <image src="{{item.sellerPhotoUrl}}"></image>
+        </view>
+        <navigator url="seller_detail?sellerUserName={{item.sellerUserName}}" hover-class="navigator-hover">
+        <view class="sellerText">
+          <view>商家账号：{{item.sellerUserName}}</view>
+          <view>商户名称：{{item.sellerName}}</view>
+          <view>经营时间：{{item.workTime}}</view>
+          <view>联系电话：{{item.telephone}}</view>
+          <view>工作地址：{{item.workAddress}}</view>
+          <view>评价分数：{{item.scoreValue}}</view>
+          <view>注册时间：{{item.addTime}}</view>
+        </view>
+        </navigator>
+    </view>
+    <view class="opt_view" style="display:none;">
+      <button class="font_12 fl_r del-btn mr_10" bindtap="removeSeller" data-sellerusername="{{item.sellerUserName}}">删除</button> 
+      <navigator url="seller_modify?sellerUserName={{item.sellerUserName}}" hover-class="navigator-hover">
+        <button class="font_12 fl_r op-btn mr_10">编辑</button>
+      </navigator>
+    </view>
+  </block>
+  </view>
+
+  <view hidden="{{loading_hide}}" class="loading">
+    <view class="loadingImg"><image src="/images/loading.gif" mode="aspectFill"></image></view>
+    <view class="loadingTxt">..加载中..</view>
+  </view>
+  <view class="nodata_view" hidden="{{nodata_hide}}">
+    <image src="/images/Noline.png" mode="widthFix"></image>
+  </view>
+</view>
+
